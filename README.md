@@ -197,5 +197,17 @@ There are two cases where merge conflicts occur
 * A file is modified by both users
 * A file is modified by one user while deleted by the other
 
+###Working with others
+To obtain a copy of someone else's branch:
+
+Create your own branch with their name:
+```
+$ git checkout -b branch_name
+$ git pull git@github.com:username/repo.git branch_name
+```
+
+
 ##Disclaimer:
 This guide is aimed particularly at people starting open source contribution for the first time and aims to familiarise them with required patterns and expected contribution behaviour.
+
+
