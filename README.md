@@ -197,5 +197,33 @@ There are two cases where merge conflicts occur
 * A file is modified by both users
 * A file is modified by one user while deleted by the other
 
+###Following and forking another branch
+```
+git remote add coworker git://path/to/coworkers/repo.git
+git fetch coworker
+git checkout --track coworker/foo
+```
+
+This will setup a local branch foo, tracking the remote branch coworker/foo. So when your coworker has made some changes, you can easily pull them:
+```
+git checkout foo
+git pull
+```
+
+
+Response to comments:
+
+
+Cool :) And if I'd like to make my own changes to that branch, should I create a second local branch "bar" from "foo" and work there instead of directly on my "foo"?
+
+You don't need to create a new branch, even though I recommend it. You might as well commit directly to foo and have your coworker pull your branch. But that branch already exists and your branch foo need to be setup as an upstream branch to it:
+git branch --set-upstream foo colin/foo
+
+
+assuming "colin" is your repository defined in similar way:
+git remote add colin git://path/to/colins/repo.git
+
+
+
 ##Disclaimer:
 This guide is aimed particularly at people starting open source contribution for the first time and aims to familiarise them with required patterns and expected contribution behaviour.
